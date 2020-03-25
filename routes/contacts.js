@@ -10,7 +10,7 @@ router.route("/all").get((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
-router.route("/add").post((req, res) => {
+router.route("/addcontact").post((req, res) => {
   const telnumber1 = req.body.telnumber1;
   const telnumber2 = req.body.telnumber2;
   const deviceid1 = req.body.deviceid1;
@@ -23,7 +23,7 @@ router.route("/add").post((req, res) => {
 });
 
 
-router.route("/addcontact").get((req, res) => {
+router.route("/addcontact1").get((req, res) => {
   console.log('Adding time: ' + JSON.stringify(req.body));
   const telnumber1 = '776359893';
   const telnumber2 = '770963456';

@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
+require('dotenv').config();
 
 
 var usersRouter = require('./routes/users');
@@ -21,9 +22,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+console.log(process.env.DB_PASS);
 mongoose.connect(
-  "mongodb+srv://ouz:ouz@cluster0-wfwzr.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb+srv://"+process.env.DB_USER+":"+process.env.DB_PASS+"@cluster0-wfwzr.mongodb.net/test?retryWrites=true&w=majority",
   { useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
