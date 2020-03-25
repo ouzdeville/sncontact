@@ -18,23 +18,51 @@ Pour tracer les patients qui souffrent du Corona au Sénégal et de leur contact
 
 ## Usage
 
-### Basic example **Create USER** `/api/users`:
+### Example **Ajouter une nouvelle position** `/users/addposition`:
 
 Request Body:
 ```json
 {
-  "name": "CRISTIAN MORENO",
-  "email": "khriztianmoreno@myemail.com",
-  "password": "my-secret-password"
+  "telnumber": "77xxxxxxx",
+  "cni": "",
+  "deviceid": "",
+  "debutsejour":"2020-03-25T20:35:32.359+00:00",
+  "finsejour" :"2020-03-25T20:35:32.359+00:00",
+  "coord : {
+        latitude: '',
+        longitude: '',
+        altitude: '0'
+        },
+  "etat" :"0",
+  "description":""
 }
 ```
 
 Response:
 ```json
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OWFiNzkyMWQ1Yzk3NjJlZGQzZmUwZDgiLCJpYXQiOjE1MDQ0MDk4ODksImV4cCI6MTUwNDQyNzg4OX0.2gZPXZ-dQc3kQ1fcIDryHm4gIqWLvcw6guAOnP0ueGU"
+    "User added!"
 }
 ```
+### Example **Ajouter une nouveau contact** `/contacts/addcontact`:
+
+Request Body:
+```json
+{
+  "telnumber1": "77xxxxxxx",
+  "telnumber2": "77xxxxxxx",
+  "deviceid1": "",
+  "deviceid2": "",
+}
+```
+
+Response:
+```json
+{
+    "Contact ajouté!"
+}
+```
+
 
 ## Getting Started
 
@@ -52,7 +80,7 @@ Response:
 
 3. Run `npm run dev` to start the development server. It should automatically open the client in your browser when ready.
 
-4. Open browser `http://localhost:3030/api/helloworld`.
+4. Open browser `http://localhost:3030/users/all`.
 
 
 ## Contributors
