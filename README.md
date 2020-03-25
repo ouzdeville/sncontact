@@ -6,12 +6,15 @@ Pour tracer les patients qui souffrent du Corona au Sénégal et de leur contact
 
 | Route           | HTTP Verb | Route Middleware   | Description                          |
 | --------------- | --------- | ------------------ | ------------------------------------ |
-| /api/users      | GET       |                    | Get list of users                    |
-| /api/users      | POST      |                    | Creates a new user                   |
-| /api/users/:id  | GET       | `isAuthenticated`  | Get a single user                    |
-| /api/users/:id  | DELETE    | `hasRole('admin')` | Deletes a user, restriction: 'admin' |
-| /api/users/me   | GET       | `isAuthenticated`  | Get my info                          |
-| /api/users:id/password | PUT| `isAuthenticated`  | Change a users password              |
+| /users/all      | GET       |                    | Recupérer la liste des users         |
+| /users/addposition      | POST      |                    | Ajouter une nouvelle position                  |
+| /users/:telnumber  | GET       |   | Recupérer les positions d'un user dont le numéro de tel est donné                |
+| /users/:id  | DELETE    |  | Supprimer une position |
+| /contacts/all      | GET       |                    | Recupérer la liste des contacts observer entre les personnes         |
+| /contacts/addcontact      | POST      |                    | Ajouter une nouveau contact                  |
+| /contacts/:telnumber  | GET       |   | Recupérer les  contacts du numéro de tel                 |
+| /contacts/:id  | DELETE    |  | Supprimer un contact |
+
 
 ## Usage
 
