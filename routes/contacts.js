@@ -15,7 +15,9 @@ router.route("/addcontact").post((req, res) => {
   const telnumber2 = req.body.telnumber2;
   const deviceid1 = req.body.deviceid1;
   const deviceid2 = req.body.deviceid2;
-  const newContact = new Contacts({ telnumber1, telnumber2, deviceid1,deviceid2 });
+  const coord = req.body.coord;
+  const datesejour = req.body.datesejour;
+  const newContact = new Contacts({ telnumber1, telnumber2, deviceid1,deviceid2,coord,datesejour});
   newContact
     .save()
     .then(() => res.json("Contact ajouté"))

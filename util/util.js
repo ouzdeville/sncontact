@@ -14,7 +14,9 @@ var methods = {};
             if (err1) return handleError(err1);
     
             users1.forEach(user1 => {
+                console.log(user1.telnumber);
                 numtel.push(user1.telnumber); 
+                if(user1.computed==1) continue;
                 const startPoint = new GeoPoint(user1.coord.latitude, user1.coord.longitude);
                 User.find({telnumber: { $nin: numtel}}, function (err2, users2) {
                     if (err2) return handleError(err2);
