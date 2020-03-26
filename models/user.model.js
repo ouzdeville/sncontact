@@ -23,9 +23,9 @@ const userSchema = new Schema(
 	debutsejour: { type: Date, default: Date.now },
 	finsejour: { type: Date, default: Date.now },
 	coord: {
-      latitude: String,
-      longitude: String,
-	    altitude: String
+      latitude: Number,
+      longitude: Number,
+	    altitude: Number
     },
 	etat: {
       type: Number,
@@ -33,7 +33,12 @@ const userSchema = new Schema(
     },
     description: {
       type: String
-    }
+    },
+    computed: {
+      type: Number,
+      required: false
+    },
+    contacts: [{ type: Schema.Types.ObjectId, ref: 'User' }]
   },
   {
     timestamps: true

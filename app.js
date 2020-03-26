@@ -5,10 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
 require('dotenv').config();
+var CronJob = require('cron').CronJob;
 
 
 var usersRouter = require('./routes/users');
 var contactsRouter = require('./routes/contacts');
+var util = require('./util/util');
 
 var app = express();
 
@@ -34,6 +36,9 @@ connection.once("open", () => {
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/contacts', contactsRouter);
+
+util.data.runCronContact();
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

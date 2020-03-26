@@ -11,7 +11,7 @@ router.route("/all").get((req, res) => {
 });
 
 router.route("/testadd").get((req, res) => {
-  const telnumber = '776359893';
+  const telnumber = '77xxxxxxx';
   const hashnumber = 'req.body.hashnumber';
   const cni = '1633xxx';
   const deviceid = 'xyxvehjkjhsfkjhsf';

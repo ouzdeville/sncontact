@@ -24,7 +24,8 @@ const contactsSchema = new Schema(
       latitude: String,
       longitude: String,
 	    altitude: String
-    }
+    },
+    datesejour: { type: Date, default: Date.now }
   },
   { 
     timestamps: true
