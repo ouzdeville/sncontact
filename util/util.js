@@ -10,20 +10,20 @@ var methods = {};
         debut=new Date();
         //{'computed':0},
         var numtel=[];
-        User.find( function (err1, users1) {
+        User.find({'computed':0}, function (err1, users1) {
             if (err1) return handleError(err1);
     
             users1.forEach(user1 => {
                 console.log(user1.telnumber);
                 numtel.push(user1.telnumber); 
-                if(user1.computed==1) continue;
                 const startPoint = new GeoPoint(user1.coord.latitude, user1.coord.longitude);
                 User.find({telnumber: { $nin: numtel}}, function (err2, users2) {
                     if (err2) return handleError(err2);
                     users2.forEach(user2 => {
                         const endPoint = new GeoPoint(user2.coord.latitude, user2.coord.longitude);
                         distance = startPoint.calculateDistance(endPoint);
-                        if(distance <= process.env.DISTANCE){
+                        if(distance <= process.env.DISTANCE 
+                          && !((user1.debutsejour>user2.finsejour)||(user1.finsejour<user2.debutsejour))){
                             const telnumber1 = user1.telnumber;
                             const telnumber2 = user2.telnumber;
                             const deviceid1 = user1.deviceid;

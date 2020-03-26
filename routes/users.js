@@ -11,7 +11,7 @@ router.route("/all").get((req, res) => {
 });
 
 router.route("/testadd").get((req, res) => {
-  const telnumber = '77xxxxxxx';
+  const telnumber = '77xxxxxxx'+Math.random();
   const hashnumber = 'req.body.hashnumber';
   const cni = '1633xxx';
   const deviceid = 'xyxvehjkjhsfkjhsf';
@@ -26,7 +26,8 @@ router.route("/testadd").get((req, res) => {
   }
   const etat = 0;
   const description = '';
-  const newUser = new User({telnumber,hashnumber,cni,deviceid,debutsejour,finsejour,coord,etat,description});
+  const computed=0;
+  const newUser = new User({telnumber,hashnumber,cni,deviceid,debutsejour,finsejour,coord,etat,description,computed});
   newUser
     .save()
     .then(() => res.json("User added!"))
@@ -44,7 +45,8 @@ router.route("/addposition").post((req, res) => {
   const coord = req.body.coord;
   const etat = req.body.etat;
   const description = req.body.description;
-  const newUser = new User({telnumber,hashnumber,cni,deviceid,debutsejour,finsejour,coord,etat,description});
+  const computed=0;
+  const newUser = new User({telnumber,hashnumber,cni,deviceid,debutsejour,finsejour,coord,etat,description,computed});
   newUser
     .save()
     .then(() => res.json("User added!"))
