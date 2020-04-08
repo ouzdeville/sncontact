@@ -53,9 +53,13 @@ router.route("/addposition").post((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
-router.route("/:telnumber").get((req, res) => {
+router.route("/:telnumber/:debut/:fin").get((req, res) => {
   console.log('Adding time: ' + req.params.telnumber);
-  User.find({ telnumber: req.params.telnumber})
+  User.find({ 
+      telnumber: req.params.telnumber,
+      debutsejour:{ $gte: req.params.debut},
+      finsejour: { $lte: req.params.fin}
+    })
     .then(user => res.json(user))
     .catch(err => res.status(400).json("Error: " + err));
 });
