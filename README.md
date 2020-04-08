@@ -8,11 +8,11 @@ Pour tracer les patients qui souffrent du Corona au Sénégal et de leur contact
 | --------------- | ---------  | ------------------------------------ |
 | /users/all      | GET      | Recupérer la liste des users         |
 | /users/addposition      | POST                    | Ajouter une nouvelle position                  |
-| /users/:telnumber  | GET    | Recupérer les positions d'un user dont le numéro de tel est donné                |
+| /users/:telnumber/:debut/:fin  | GET    | Recupérer les positions d'un user dont le numéro de tel est donné                |
 | /users/:id  | DELETE  | Supprimer une position |
 | /contacts/all      | GET                    | Recupérer la liste des contacts observer entre les personnes         |
 | /contacts/addcontact      | POST                   | Ajouter une nouveau contact                  |
-| /contacts/:telnumber  | GET   | Recupérer les  contacts du numéro de tel                 |
+| /contacts/:telnumber/:debut/:fin  | GET   | Recupérer les  contacts du numéro de tel                 |
 | /contacts/:id  | DELETE  | Supprimer un contact |
 
 
